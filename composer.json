@@ -25,7 +25,9 @@
 		"greenlion/php-sql-parser": "^4.6",
 		"phpoffice/phpspreadsheet": "^1.16",
 		"mpdf/mpdf": "^8.2",
-		"rakit/validation": "^1.4"
+		"rakit/validation": "^1.4",
+		"symfony/console": "5.4",
+		"symfony/var-dumper": "5.4"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
