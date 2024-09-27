@@ -4,17 +4,17 @@
 <!--begin::Head-->
 
 <head>
-	<title>DMS Wuling</title>
+	<title>UPT Asrama Haji Makassar</title>
 	<meta charset="utf-8" />
-	<meta name="description" content="DMS Wuling" />
-	<meta name="keywords" content="dms, wuling, admin, kumalagroup" />
+	<meta name="description" content="UPT Asrama Haji Makassar" />
+	<meta name="keywords" content="upt, asramahaji, login, kemenag" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="DMS Wuling" />
-	<meta property="og:url" content="https://wuling.kumalagroup.co.id" />
-	<meta property="og:site_name" content="DMS Wuling" />
-	<link rel="canonical" href="https://wuling.kumalagroup.co.id" />
+	<meta property="og:title" content="UPT Asrama Haji Makassar" />
+	<meta property="og:url" content="https://asramahajimakassar.com" />
+	<meta property="og:site_name" content="UPT Asrama Haji Makassar" />
+	<link rel="canonical" href="https://asramahajimakassar.com" />
 	<link rel="shortcut icon" href="<?= base_url() ?>public/assets/media/favicon/favicon.ico" />
 	<link rel="apple-touch-icon" sizes="180x180" href="<?= base_url() ?>public/assets/media/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?= base_url() ?>public/assets/media/favicon/favicon-32x32.png">
@@ -93,7 +93,7 @@
 					<!--begin::Mobile logo-->
 					<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
 						<a href="index.html" class="d-lg-none">
-							<img alt="Logo" src="<?= base_url() ?>public/assets/media/logos/wuling-logo-single2.png" class="h-20px" />
+							<img alt="Logo" src="<?= base_url() ?>public/assets/media/logos/upt-logo-horizontal-black.png" class="h-20px" />
 						</a>
 						<div class="menu-item menu-accordion d-lg-none">
 							<span class="menu-link">
@@ -134,7 +134,7 @@
 
 							<!--begin::User menu-->
 							<div class="app-navbar-item ms-1 ms-md-4" id="kt_header_user_menu_toggle">
-								
+
 								<div class="cursor-pointer symbol symbol-35px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
 									<!-- <img src="<?= base_url() ?>public/assets/media/avatars/blank.png" class="rounded-3" alt="user" /> -->
 									<?php
@@ -171,7 +171,7 @@
 											<!--end::Username-->
 										</div>
 									</div>
-									
+
 									<div class="separator my-2"></div>
 
 									<div class="menu-item px-5">
@@ -287,15 +287,15 @@
 						<div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
 							<!--begin::Copyright-->
 							<div class="text-gray-900 order-2 order-md-1">
-								<span class="text-muted fw-semibold">2017-<?= date('Y') ?> &copy;</span>
-								<a href="https://kumalagroup.id" target="_blank" class="text-gray-800 text-hover-primary">KumalaGroup</a>. All Rights Reserved.
+								<span class="text-muted fw-semibold">2024-<?= date('Y') ?> &copy;</span>
+								<a href="https://asramahajimakassar.com" target="_blank" class="text-gray-800 text-hover-primary">UPT Asrama Haji</a>. All Rights Reserved.
 							</div>
 							<!--end::Copyright-->
-							<?php 
-								$version = "Wuling Kumala Connect v3.1.5";
-								if (ENVIRONMENT === 'development') {
-									$version .= ' :: Rendered in: '.' <strong> {elapsed_time}</strong> seconds. CodeIgniter V<strong>' . CI_VERSION . '</strong>';
-								}
+							<?php
+							$version = "UPT Asrama Haji Connect v0.1.0";
+							if (ENVIRONMENT === 'development') {
+								$version .= ' :: Rendered in: ' . ' <strong> {elapsed_time}</strong> seconds. CodeIgniter V<strong>' . CI_VERSION . '</strong>';
+							}
 							?>
 							<ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
 								<li class="menu-item">
