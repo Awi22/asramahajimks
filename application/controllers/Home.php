@@ -6,14 +6,13 @@ class Home extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('wuling_admin/model_adm_setting');
+		$this->load->model('administrator/model_adm_setting');
 	}
-
 
 	public function index()
 	{
-        $row = $this->db_wuling->get('system_setting')->row();
-		if(empty($row->background_home)){
+		$row = $this->db->get('system_setting')->row();
+		if (empty($row->background_home)) {
 			$background = $row->background_home_default;
 		} else {
 			$background = $row->background_home;
@@ -28,7 +27,6 @@ class Home extends MY_Controller
 			->data($data)
 			->view('home');
 	}
-	
 }
 
 /* End of file Home.php */
