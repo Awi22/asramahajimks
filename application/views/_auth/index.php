@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<base hrsef="<?= base_url('public/assets/') ?> " />
-	<title>DMS Wuling</title>
+	<title>UPT Asrama Haji Makassar</title>
 	<meta charset="utf-8" />
-	<meta name="description" content="DMS Wuling Login" />
-	<meta name="keywords" content="dms, wuling, login, kumalagroup" />
+	<meta name="description" content="UPT Asrama Haji Makassar Login" />
+	<meta name="keywords" content="upt, asramahaji, login, kemenag" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="DMS Wuling" />
-	<meta property="og:url" content="https://wuling.kumalagroup.co.id" />
-	<meta property="og:site_name" content="DMS Wuling" />
+	<meta property="og:title" content="UPT Asrama Haji Makassar" />
+	<meta property="og:url" content="https://asramahajimakassar.com" />
+	<meta property="og:site_name" content="UPT Asrama Haji Makassar" />
 	<link rel="shortcut icon" href="<?= base_url() ?>public/assets/media/favicon/favicon.ico" />
 	<link rel="apple-touch-icon" sizes="180x180" href="<?= base_url() ?>public/assets/media/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?= base_url() ?>public/assets/media/favicon/favicon-32x32.png">
@@ -20,7 +21,7 @@
 	<link rel="mask-icon" href="<?= base_url() ?>public/assets/media/favicon/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
-	
+
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
 	<link href="<?= base_url('public/assets/') ?>plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url('public/assets/') ?>css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -66,7 +67,7 @@
 					<div class="d-flex flex-center flex-column flex-column-fluid px-lg-5 pb-5 pb-lg-5">
 						<div class="d-flex flex-center flex-lg-start flex-column">
 							<a href="<?= base_url() ?>" class="mb-10" style="text-align:center">
-								<img class="w-200px mb-10" alt="Logo" src="<?= base_url('public/assets/') ?>media/logos/wuling-logo2.png" />
+								<img class="w-300px mb-5" alt="Logo" src="<?= base_url('public/assets/') ?>media/logos/upt-logo-horizontal-black.png" />
 							</a>
 						</div>
 						<!--begin::Form-->
