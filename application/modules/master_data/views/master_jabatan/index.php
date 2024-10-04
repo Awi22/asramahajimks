@@ -79,6 +79,6 @@
         </div>
     </div>
 </div>
-<!-- end::modal_tambah_role -->
+<!-- end::modal_tambah_jabatan -->
 
 <!--end::MODALS-->
