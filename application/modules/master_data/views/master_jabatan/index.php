@@ -81,6 +81,4 @@
 </div>
 <!-- end::modal_tambah_role -->
 
-<!-- start::modal_edit_coa -->
-<!-- end::modal_edit_coa -->
 <!--end::MODALS-->
