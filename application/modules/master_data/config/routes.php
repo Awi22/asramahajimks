@@ -18,3 +18,11 @@ $route['master_area_kerja/get_area_kerja_by_id']    = "master_data/master_area_k
 $route['master_area_kerja/simpan']                  = "master_data/master_area_kerja/simpan";
 $route['master_area_kerja/update']                  = "master_data/master_area_kerja/update";
 $route['master_area_kerja/hapus']                   = "master_data/master_area_kerja/hapus";
+
+/* Gedung */
+$route['master_gedung']                         = "master_data/master_gedung";
+$route['master_gedung/get']                     = "master_data/master_gedung/get";
+$route['master_gedung/get_gedung_by_id']        = "master_data/master_gedung/get_gedung_by_id";
+$route['master_gedung/simpan']                  = "master_data/master_gedung/simpan";
+$route['master_gedung/update']                  = "master_data/master_gedung/update";
+$route['master_gedung/hapus']                   = "master_data/master_gedung/hapus";
