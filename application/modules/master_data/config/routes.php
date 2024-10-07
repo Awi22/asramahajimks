@@ -26,3 +26,11 @@ $route['master_gedung/get_gedung_by_id']        = "master_data/master_gedung/get
 $route['master_gedung/simpan']                  = "master_data/master_gedung/simpan";
 $route['master_gedung/update']                  = "master_data/master_gedung/update";
 $route['master_gedung/hapus']                   = "master_data/master_gedung/hapus";
+
+/* Penempatan tugas */
+$route['master_penempatan_tugas']                               = "master_data/master_penempatan_tugas";
+$route['master_penempatan_tugas/get']                           = "master_data/master_penempatan_tugas/get";
+$route['master_penempatan_tugas/get_penempatan_tugas_by_id']    = "master_data/master_penempatan_tugas/get_penempatan_tugas_by_id";
+$route['master_penempatan_tugas/simpan']                        = "master_data/master_penempatan_tugas/simpan";
+$route['master_penempatan_tugas/update']                        = "master_data/master_penempatan_tugas/update";
+$route['master_penempatan_tugas/hapus']                         = "master_data/master_penempatan_tugas/hapus";
