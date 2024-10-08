@@ -29,7 +29,7 @@
                             <thead>
                                 <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                                     <th>No</th>
-                                    <th>Nama Area Kerja</th>
+                                    <th>Area Kerja</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -59,8 +59,8 @@
                 <div class="row">
                     <div class="col">
                         <div class="fv-row mb-5">
-                            <label class="fs-6 mb-1">Nama Area Kerja</label>
-                            <input type="text" class="form-control form-control-sm mb-5" placeholder="Nama Area Kerja" name="nama_area_kerja" id="nama_area_kerja" autocomplete="off" />
+                            <label class="fs-6 mb-1">Area Kerja</label>
+                            <input type="text" class="form-control form-control-sm mb-5" placeholder="Area Kerja" name="nama_area_kerja" id="nama_area_kerja" autocomplete="off" />
                         </div>
                     </div>
                 </div>

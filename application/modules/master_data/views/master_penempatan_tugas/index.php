@@ -29,7 +29,7 @@
                             <thead>
                                 <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                                     <th>No</th>
-                                    <th>Nama Penempatan Tugas</th>
+                                    <th>Penempatan Tugas</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -59,8 +59,8 @@
                 <div class="row">
                     <div class="col">
                         <div class="fv-row mb-5">
-                            <label class="fs-6 mb-1">Nama Penempatan Tugas</label>
-                            <input type="text" class="form-control form-control-sm mb-5" placeholder="Nama Penempatan Tugas" name="nama_penempatan_tugas" id="nama_penempatan_tugas" autocomplete="off" />
+                            <label class="fs-6 mb-1">Penempatan Tugas</label>
+                            <input type="text" class="form-control form-control-sm mb-5" placeholder="Penempatan Tugas" name="nama_penempatan_tugas" id="nama_penempatan_tugas" autocomplete="off" />
                         </div>
                     </div>
                 </div>
