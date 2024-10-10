@@ -11,6 +11,22 @@ $route['master_status_pegawai/simpan']                      = "master_data/maste
 $route['master_status_pegawai/update']                      = "master_data/master_status_pegawai/update";
 $route['master_status_pegawai/hapus']                       = "master_data/master_status_pegawai/hapus";
 
+/* Jenis ASN */
+$route['master_jenis_asn']                             = "master_data/master_jenis_asn";
+$route['master_jenis_asn/get']                         = "master_data/master_jenis_asn/get";
+$route['master_jenis_asn/get_jenis_asn_by_id']         = "master_data/master_jenis_asn/get_jenis_asn_by_id";
+$route['master_jenis_asn/simpan']                      = "master_data/master_jenis_asn/simpan";
+$route['master_jenis_asn/update']                      = "master_data/master_jenis_asn/update";
+$route['master_jenis_asn/hapus']                       = "master_data/master_jenis_asn/hapus";
+
+/* Daftar Pegawai */
+// $route['master_pegawai']                    = "master_data/master_pegawai";
+// $route['master_pegawai/get']                = "master_data/master_pegawai/get";
+// $route['master_pegawai/get_pegawai_by_id']  = "master_data/master_pegawai/get_pegawai_by_id";
+// $route['master_pegawai/simpan']             = "master_data/master_pegawai/simpan";
+// $route['master_pegawai/update']             = "master_data/master_pegawai/update";
+// $route['master_pegawai/hapus']              = "master_data/master_pegawai/hapus";
+
 /* Jabatan */
 $route['master_jabatan']                    = "master_data/master_jabatan";
 $route['master_jabatan/get']                = "master_data/master_jabatan/get";
