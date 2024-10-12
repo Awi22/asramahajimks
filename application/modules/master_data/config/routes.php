@@ -19,13 +19,13 @@ $route['master_jenis_asn/simpan']                      = "master_data/master_jen
 $route['master_jenis_asn/update']                      = "master_data/master_jenis_asn/update";
 $route['master_jenis_asn/hapus']                       = "master_data/master_jenis_asn/hapus";
 
-/* Daftar Pegawai */
-// $route['master_pegawai']                    = "master_data/master_pegawai";
-// $route['master_pegawai/get']                = "master_data/master_pegawai/get";
-// $route['master_pegawai/get_pegawai_by_id']  = "master_data/master_pegawai/get_pegawai_by_id";
-// $route['master_pegawai/simpan']             = "master_data/master_pegawai/simpan";
-// $route['master_pegawai/update']             = "master_data/master_pegawai/update";
-// $route['master_pegawai/hapus']              = "master_data/master_pegawai/hapus";
+/* Agama */
+$route['master_agama']                         = "master_data/master_agama";
+$route['master_agama/get']                     = "master_data/master_agama/get";
+$route['master_agama/get_agama_by_id']         = "master_data/master_agama/get_agama_by_id";
+$route['master_agama/simpan']                  = "master_data/master_agama/simpan";
+$route['master_agama/update']                  = "master_data/master_agama/update";
+$route['master_agama/hapus']                   = "master_data/master_agama/hapus";
 
 /* Jabatan */
 $route['master_jabatan']                    = "master_data/master_jabatan";
@@ -58,3 +58,13 @@ $route['master_gedung/get_gedung_by_id']        = "master_data/master_gedung/get
 $route['master_gedung/simpan']                  = "master_data/master_gedung/simpan";
 $route['master_gedung/update']                  = "master_data/master_gedung/update";
 $route['master_gedung/hapus']                   = "master_data/master_gedung/hapus";
+
+/* Daftar ASN */
+// $route['master_asn']                    = "master_data/master_asn";
+// $route['master_asn/get']                = "master_data/master_asn/get";
+// $route['master_asn/get_asn_by_id']      = "master_data/master_asn/get_asn_by_id";
+// $route['master_asn/simpan']             = "master_data/master_asn/simpan";
+// $route['master_asn/update']             = "master_data/master_asn/update";
+// $route['master_asn/hapus']              = "master_data/master_asn/hapus";
+// $route['master_asn/select2_jenisASN']   = "master_data/master_asn/select2_jenisASN";
+// $route['master_asn/select2_jabatan']    = "master_data/master_asn/select2_jabatan";
