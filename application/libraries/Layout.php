@@ -50,7 +50,7 @@ class Layout
 	 * @param string 	$var		
 	 * @return object
 	 */
-	public function __get($var) 
+	public function __get($var)
 	{
 		return get_instance()->$var;
 	}
@@ -82,7 +82,8 @@ class Layout
 	 * @param string 	$template	folder template
 	 * @return object
 	 */
-	public function template($template) {
+	public function template($template)
+	{
 		$this->template = $template;
 		return $this;
 	}
@@ -166,28 +167,28 @@ class Layout
 	 */
 	private function generate_menu($role_id)
 	{
-		$query_menu = $this->db_wuling->select('menu_id')->from('menu_role_group')->where('role_id', $role_id)->get();
+		$query_menu = $this->db->select('menu_id')->from('menu_role_group')->where('role_id', $role_id)->get();
 		$menu_ids = [];
 
 		foreach ($query_menu->result() as $menu_id) {
 			$menu_ids[] = $menu_id->menu_id;
 		};
-		
+
 		$arr_menu = array(
 			'items' => array(),
 			'parents' => array()
 		);
 
-		if($query_menu->num_rows()>0){
-			$query = $this->db_wuling->select("*")->from('menu')->where_in('id', $menu_ids)->where('is_enabled',1)->order_by('group_id, parent_id, position')->get();
-			
+		if ($query_menu->num_rows() > 0) {
+			$query = $this->db->select("*")->from('menu')->where_in('id', $menu_ids)->where('is_enabled', 1)->order_by('group_id, parent_id, position')->get();
+
 			foreach ($query->result() as $menu) {
 				$arr_menu['items'][$menu->id] = $menu;
 				$arr_menu['parents'][$menu->parent_id][] = $menu->id;
 			}
 		}
 
-		
+
 		if ($arr_menu) {
 			$result = $this->build_menu(0, $arr_menu);
 			return $result;
@@ -286,7 +287,7 @@ class Layout
 	private function _group_id_to_title($group_id)
 	{
 		$title = "";
-		$query = $this->db_wuling->get_where('menu_group', ['id' => $group_id]);
+		$query = $this->db->get_where('menu_group', ['id' => $group_id]);
 		$row = $query->row();
 		if (isset($row)) {
 			$title = strtoupper($row->title);
