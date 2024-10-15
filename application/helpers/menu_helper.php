@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 
 function get_main_menu($group_id, $attr = '')
@@ -9,11 +9,11 @@ function get_main_menu($group_id, $attr = '')
     $main_menu = [];
     $ci = &get_instance();
     $ci->data = array();
-    $ci->db_wuling->select('*');
-    $ci->db_wuling->from('menu');
-    $ci->db_wuling->where('group_id', $group_id);
-    $ci->db_wuling->order_by('position');
-    $query = $ci->db_wuling->get();
+    $ci->db->select('*');
+    $ci->db->from('menu');
+    $ci->db->where('group_id', $group_id);
+    $ci->db->order_by('position');
+    $query = $ci->db->get();
     $menu = $query->result();;
 
     //ini untuk main menu

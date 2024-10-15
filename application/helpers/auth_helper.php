@@ -25,7 +25,7 @@ if (!function_exists('has_access')) {
 		$not_in_menus = ['', 'home'];
 
 		if (!in_array($uri, $not_in_menus)) {
-			$queryMenu = $ci->db_wuling
+			$queryMenu = $ci->db
 				->select('mrg.menu_id,m.url')
 				->from('menu_role_group mrg')
 				->join('menu m', 'm.id=mrg.menu_id')
