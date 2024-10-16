@@ -285,38 +285,4 @@ class Model_asn extends CI_Model
 
         return $data;
     }
-
-    // public function get_area_kerja($id_area_kerja)
-    // {
-    //     $data = '';
-    //     $query = $this->db
-    //         ->select('nama_area_kerja')
-    //         ->from('area_kerja')
-    //         ->where('id_area_kerja', $id_area_kerja)
-    //         ->get()
-    //         ->row();
-
-    //     if (isset($query)) {
-    //         $data = $query->nama_area_kerja;
-    //     }
-
-    //     return $data;
-    // }
-
-    // public function get_penempatan_tugas($id_penempatan_tugas)
-    // {
-    //     $data = '';
-    //     $query = $this->db
-    //         ->select('nama_penempatan_tugas')
-    //         ->from('penempatan_tugas')
-    //         ->where('id_penempatan_tugas', $id_penempatan_tugas)
-    //         ->get()
-    //         ->row();
-
-    //     if (isset($query)) {
-    //         $data = $query->nama_penempatan_tugas;
-    //     }
-
-    //     return $data;
-    // }
 }
