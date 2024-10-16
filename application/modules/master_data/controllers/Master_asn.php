@@ -11,7 +11,7 @@ class Master_asn extends MY_Controller
     public function index()
     {
         $this->layout
-            ->title('Master Daftar ASN')
+            ->title('Master ASN')
             ->view('master_asn/index');
     }
 
