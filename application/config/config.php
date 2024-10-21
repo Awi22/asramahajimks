@@ -12,9 +12,9 @@ $config['base_url']                   = (isset($_SERVER['HTTPS']) ? "https://" :
 
 $config['fonts_path']                 = 'system/fonts/';
 
-$config['nama_aplikasi']              = 'DMS Wuling';
-$config['nama_pendek']                = 'DMS-KCA';
-$config['nama_instansi']              = 'KUMALA MOTOR CEMERLANG';
+$config['nama_aplikasi']              = 'DMS ASRAMA HAJI MAKASSAR';
+$config['nama_pendek']                = 'ASHAJMKS';
+$config['nama_instansi']              = 'UPT ASRAMA HAJI MAKASSAR';
 
 $config['index_page']                 = '';
 
@@ -54,7 +54,7 @@ $config['cache_query_string']         = FALSE;
 $config['encryption_key']             = 'kmg168';
 
 $config['sess_driver']                = 'files';
-$config['sess_cookie_name']           = 'ci_session_dms_wuling';
+$config['sess_cookie_name']           = 'ci_session_dms_ashaj';
 $config['sess_samesite']              = 'Lax';
 $config['sess_expiration']            = 3600 * 24 * 30;
 $config['sess_save_path']             = sys_get_temp_dir();
