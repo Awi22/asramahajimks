@@ -386,6 +386,7 @@
         })
     }
 
+    //get kode karyawan
     function getKodekaryawan() {
         $.ajax({
             url: "<?= site_url('master_karyawan/getKodeKaryawan'); ?>",
