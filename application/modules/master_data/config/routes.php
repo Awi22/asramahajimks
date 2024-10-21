@@ -69,3 +69,16 @@ $route['master_asn/hapus']              = "master_data/master_asn/hapus";
 $route['master_asn/select2_jenisASN']   = "master_data/master_asn/select2_jenisASN";
 $route['master_asn/select2_jabatan']    = "master_data/master_asn/select2_jabatan";
 $route['master_asn/select2_agama']      = "master_data/master_asn/select2_agama";
+
+/* Daftar Karyawan */
+$route['master_karyawan']                           = "master_data/master_karyawan";
+$route['master_karyawan/get']                       = "master_data/master_karyawan/get";
+$route['master_karyawan/get_karyawan_by_id']        = "master_data/master_karyawan/get_karyawan_by_id";
+$route['master_karyawan/simpan']                    = "master_data/master_karyawan/simpan";
+$route['master_karyawan/update']                    = "master_data/master_karyawan/update";
+$route['master_karyawan/hapus']                     = "master_data/master_karyawan/hapus";
+$route['master_karyawan/select2_jabatan']           = "master_data/master_karyawan/select2_jabatan";
+$route['master_karyawan/select2_area_kerja']        = "master_data/master_karyawan/select2_area_kerja";
+$route['master_karyawan/select2_penempatan_tugas']  = "master_data/master_karyawan/select2_penempatan_tugas";
+$route['master_karyawan/select2_agama']             = "master_data/master_karyawan/select2_agama";
+$route['master_karyawan/getKodeKaryawan']           = "master_data/master_karyawan/getKodeKaryawan";
