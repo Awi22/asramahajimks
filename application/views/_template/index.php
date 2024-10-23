@@ -288,11 +288,11 @@
 							<!--begin::Copyright-->
 							<div class="text-gray-900 order-2 order-md-1">
 								<span class="text-muted fw-semibold">2024-<?= date('Y') ?> &copy;</span>
-								<a href="https://asramahajimakassar.com" target="_blank" class="text-gray-800 text-hover-primary">UPT Asrama Haji</a>. All Rights Reserved.
+								<a href="https://asramahajimakassar.com" target="_blank" class="text-gray-800 text-hover-primary">UPT Asrama Haji Makassar</a>. All Rights Reserved.
 							</div>
 							<!--end::Copyright-->
 							<?php
-							$version = "UPT Asrama Haji Connect v0.1.0";
+							$version = "ASHAMA Connect v0.1.0";
 							if (ENVIRONMENT === 'development') {
 								$version .= ' :: Rendered in: ' . ' <strong> {elapsed_time}</strong> seconds. CodeIgniter V<strong>' . CI_VERSION . '</strong>';
 							}
