@@ -24,6 +24,7 @@ class Model_karyawan extends CI_Model
                 'no'                    => $no++,
                 'id_karyawan'           => $karyawan->id_karyawan,
                 'nama_karyawan'         => $karyawan->nama_karyawan,
+                'status_aktif'          => $karyawan->status_aktif,
                 'jabatan'               => $this->get_jabatan($karyawan->id_jabatan),
                 'area_kerja'            => $this->get_area_kerja($karyawan->id_area_kerja),
                 'penempatan_tugas'      => $this->get_penempatan_tugas($karyawan->id_tugas),
@@ -53,6 +54,7 @@ class Model_karyawan extends CI_Model
                     'id_jabatan'    => $row->id_jabatan,
                     'id_area_kerja' => $row->id_area_kerja,
                     'id_tugas'      => $row->id_tugas,
+                    'status_aktif'  => $row->status_aktif,
                     'jenis_kelamin' => $row->jenis_kelamin,
                     'id_agama'      => $row->id_agama,
                     'email'         => $row->email,
@@ -79,6 +81,7 @@ class Model_karyawan extends CI_Model
             $jabatan        = $posts['jabatan'];
             $area_kerja     = $posts['area_kerja'];
             $tugas          = $posts['tugas'];
+            $status_aktif   = $posts['status_aktif'];
             $jenis_kelamin  = $posts['jenis_kelamin'];
             $agama          = $posts['agama'];
             $email          = $posts['email'];
@@ -107,6 +110,7 @@ class Model_karyawan extends CI_Model
                 'id_jabatan'    => $jabatan,
                 'id_area_kerja' => $area_kerja,
                 'id_tugas'      => $tugas,
+                'status_aktif'  => $status_aktif,
                 'jenis_kelamin' => $jenis_kelamin,
                 'id_agama'      => $agama,
                 'email'         => $email,
@@ -142,6 +146,7 @@ class Model_karyawan extends CI_Model
             $jabatan        = $posts['jabatan'];
             $area_kerja     = $posts['area_kerja'];
             $tugas          = $posts['tugas'];
+            $status_aktif   = $posts['status_aktif'];
             $jenis_kelamin  = $posts['jenis_kelamin'];
             $agama          = $posts['agama'];
             $email          = $posts['email'];
@@ -158,6 +163,7 @@ class Model_karyawan extends CI_Model
                 'id_jabatan'    => $jabatan,
                 'id_area_kerja' => $area_kerja,
                 'id_tugas'      => $tugas,
+                'status_aktif'  => $status_aktif,
                 'jenis_kelamin' => $jenis_kelamin,
                 'id_agama'      => $agama,
                 'email'         => $email,

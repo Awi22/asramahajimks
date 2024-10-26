@@ -33,6 +33,7 @@
                                     <th>Jabatan</th>
                                     <th>Area Kerja</th>
                                     <th>Penempatan Tugas</th>
+                                    <th>Status Aktif</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -96,6 +97,16 @@
                             <div class="input-group-sm col-sm-8">
                                 <select class="form-select form-select-sm" data-placeholder="Pilih Penempatan Tugas" id="opt_id_penempatan_tugas" name="opt_id_penempatan_tugas">
                                     <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row fv-row mb-5">
+                            <label class="required col-sm-4 col-form-label">Status Aktif</label>
+                            <div class="input-group-sm col-sm-8">
+                                <select class="form-select form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Status Aktif" name="status_aktif" id="status_aktif">
+                                    <option></option>
+                                    <option value="Aktif">Aktif</option>
+                                    <option value="Tidak Aktif">Tidak Aktif</option>
                                 </select>
                             </div>
                         </div>
