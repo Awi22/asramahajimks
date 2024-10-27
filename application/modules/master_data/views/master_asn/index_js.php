@@ -28,6 +28,25 @@
                     data: "jabatan",
                 },
                 {
+                    data: "status_aktif",
+                    searchable: false,
+                    orderable: false,
+                    className: "text-center",
+                    render: function(data, type, row, meta) {
+                        let html = '';
+                        if (data == 'Aktif') {
+                            html = `<td class="text-center">
+                                        <span class="badge badge-light-success flex-shrink-0 align-self-center py-3 px-4 fs-7">${data}</span>
+                                    </td>`;
+                        } else if (data == 'Tidak Aktif') {
+                            html = `<td class="text-center">
+                                        <span class="badge badge-light-danger flex-shrink-0 align-self-center py-3 px-4 fs-7">${data}</span>
+                                    </td>`;
+                        }
+                        return html
+                    }
+                },
+                {
                     data: "id_pegawai",
                     searchable: false,
                     orderable: false,
@@ -87,6 +106,7 @@
             opt_id_jenis_asn = $("#opt_id_jenis_asn").val(),
             opt_id_jabatan = $("#opt_id_jabatan").val(),
             email = $("#email").val(),
+            status_aktif = $("#status_aktif").val(),
             jenis_kelamin = $('input[name="jenis_kelamin"]:checked').val(),
             opt_id_agama = $("#opt_id_agama").val(),
             alamat = $("#alamat").val(),
@@ -132,6 +152,12 @@
             return false;
         }
 
+        if (status_aktif.length == 0 || status_aktif == '') {
+            pesan('warning', 'Status aktif tidak boleh kosong!');
+            $("#status_aktif").focus();
+            return false;
+        }
+
         if (jenis_kelamin == null) {
             pesan('warning', 'Jenis Kelamin tidak boleh kosong!');
             $("#male").focus();
@@ -157,6 +183,7 @@
                         nama_pegawai: nama_pegawai,
                         id_jabatan: opt_id_jabatan,
                         email: email,
+                        status_aktif: status_aktif,
                         jenis_kelamin: jenis_kelamin,
                         agama: opt_id_agama,
                         alamat: alamat,
@@ -216,6 +243,7 @@
                 $("#nama_pegawai").val(response.nama_pegawai);
                 $("#opt_id_jabatan").val(response.id_jabatan).trigger('change');
                 $("#email").val(response.email);
+                $("#status_aktif").val(response.status_aktif).trigger('change');
                 var jkl = response.jenis_kelamin;
                 if (jkl == 'L') {
                     $('#male').prop('checked', true);
@@ -285,6 +313,7 @@
         $("#opt_id_jenis_asn").val(null).trigger('change');
         $("#opt_id_jabatan").val(null).trigger('change');
         $("#email").val('');
+        $("#status_aktif").val(null).trigger('change');
         $('#male').prop('checked', false);
         $('#female').prop('checked', false);
         $("#opt_id_agama").val(null).trigger('change');

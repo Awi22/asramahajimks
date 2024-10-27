@@ -27,6 +27,7 @@ class Model_asn extends CI_Model
                 'nip'                   => $pegawai->nip,
                 'jenis_asn'             => $this->get_jenis_asn($pegawai->id_jenis_asn),
                 'jabatan'               => $this->get_jabatan($pegawai->id_jabatan),
+                'status_aktif'          => $pegawai->status_aktif,
             ];
         }
 
@@ -53,6 +54,7 @@ class Model_asn extends CI_Model
                     'nama_pegawai'  => $row->nama_pegawai,
                     'id_jabatan'    => $row->id_jabatan,
                     'email'         => $row->email,
+                    'status_aktif'  => $row->status_aktif,
                     'jenis_kelamin' => $row->jenis_kelamin,
                     'id_agama'      => $row->id_agama,
                     'alamat'        => $row->alamat,
@@ -78,6 +80,7 @@ class Model_asn extends CI_Model
             $nama_pegawai   = $posts['nama_pegawai'];
             $id_jabatan     = $posts['id_jabatan'];
             $email          = $posts['email'];
+            $status_aktif   = $posts['status_aktif'];
             $jenis_kelamin  = $posts['jenis_kelamin'];
             $id_agama       = $posts['agama'];
             $alamat         = $posts['alamat'];
@@ -105,6 +108,7 @@ class Model_asn extends CI_Model
                 'nama_pegawai'  => $nama_pegawai,
                 'id_jabatan'    => $id_jabatan,
                 'email'         => $email,
+                'status_aktif'  => $status_aktif,
                 'jenis_kelamin' => $jenis_kelamin,
                 'id_agama'      => $id_agama,
                 'alamat'        => $alamat,
@@ -139,6 +143,7 @@ class Model_asn extends CI_Model
             $nama_pegawai     = $posts['nama_pegawai'];
             $id_jabatan       = $posts['id_jabatan'];
             $email            = $posts['email'];
+            $status_aktif     = $posts['status_aktif'];
             $jenis_kelamin    = $posts['jenis_kelamin'];
             $id_agama         = $posts['agama'];
             $alamat           = $posts['alamat'];
@@ -154,6 +159,7 @@ class Model_asn extends CI_Model
                 'nama_pegawai'  => $nama_pegawai,
                 'id_jabatan'    => $id_jabatan,
                 'email'         => $email,
+                'status_aktif'  => $status_aktif,
                 'jenis_kelamin' => $jenis_kelamin,
                 'id_agama'      => $id_agama,
                 'alamat'        => $alamat,

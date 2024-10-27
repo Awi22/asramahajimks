@@ -33,6 +33,7 @@
                                     <th>NIP</th>
                                     <th>Jenis ASN</th>
                                     <th>Jabatan</th>
+                                    <th>Status Aktif</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -95,6 +96,16 @@
                             <label class="required col-sm-4 col-form-label">Email</label>
                             <div class="input-group-sm col-sm-8">
                                 <input type="text" class="form-control form-control-sm" placeholder="Email" name="email" id="email" autocomplete="off" />
+                            </div>
+                        </div>
+                        <div class="row fv-row mb-5">
+                            <label class="required col-sm-4 col-form-label">Status Aktif</label>
+                            <div class="input-group-sm col-sm-8">
+                                <select class="form-select form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Status Aktif" name="status_aktif" id="status_aktif">
+                                    <option></option>
+                                    <option value="Aktif">Aktif</option>
+                                    <option value="Tidak Aktif">Tidak Aktif</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row fv-row mb-5">
