@@ -86,7 +86,7 @@ class PHPExport
 		$objSpreadsheet = new Spreadsheet();
 
 		$data_set  	= $this->dataSet;
-		
+
 		if (isset($this->judulSheet)) {
 			$sheet_title = $this->judulSheet;
 		} else {
@@ -95,7 +95,7 @@ class PHPExport
 
 		if (!empty($data_set)) {
 			//cek ada datanya tidak?
-			
+
 			if (count($data_set) > 0) {
 				$column_name = array();
 				$column_title = array();
@@ -103,8 +103,8 @@ class PHPExport
 				//$objPHPExcel = new PHPExcel();
 				$objSpreadsheet
 					->getProperties()
-					->setCreator("KumalaGroup IT Development")
-					->setTitle("KumalaConnect Export");
+					->setCreator("Asrama Haji Makassar IT Development")
+					->setTitle("AshamaConnect Export");
 
 				$objSheet = $objSpreadsheet->setActiveSheetIndex(0); //inisiasi set object
 
@@ -164,20 +164,20 @@ class PHPExport
 					$warna_header 	=  array(
 						'fill' => array(
 							'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
-							'startColor' => array('rgb' => $this->warnaHeader) 
+							'startColor' => array('rgb' => $this->warnaHeader)
 						),
 						'font' => array(
-							'color' => array('rgb' => $this->warnaFontHeader) 
+							'color' => array('rgb' => $this->warnaFontHeader)
 						)
 					);
 				} else {
 					$warna_header 	=  array(
 						'fill' => array(
 							'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
-							'startColor' => array('rgb' => '293D8A') 
+							'startColor' => array('rgb' => '293D8A')
 						),
 						'font' => array(
-							'color' => array('rgb' => 'FFFFFF') 
+							'color' => array('rgb' => 'FFFFFF')
 						)
 					);
 				}
@@ -216,7 +216,7 @@ class PHPExport
 						if (null !== $this->fieldText) {
 							foreach ($this->fieldText as $c) {
 								if ($c == $col) {
-									
+
 									$objSpreadsheet->getActiveSheet()->setCellValueExplicit("$column_name[$c]" . $baris, $value, \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING2);
 								}
 							}
@@ -234,9 +234,9 @@ class PHPExport
 	{
 		// $spreaddd = new Spreadsheet();
 		// $writer = new Xlsx($spreaddd);
-		
+
 		header('Content-Type: application/vnd.ms-excel');
-		header('Content-Disposition: attachment;filename="'. $filename); 
+		header('Content-Disposition: attachment;filename="' . $filename);
 		header('Cache-Control: max-age=0');
 
 		$writer = IOFactory::createWriter($this->generate(), $writerType);
@@ -287,5 +287,4 @@ class PHPExport
 		}
 		return $column_name;
 	}
-
 }
