@@ -188,4 +188,67 @@ class Model_kinerja_karyawan extends CI_Model
 
         return $data;
     }
+
+    //* Laporan Kinerja
+    public function get_laporan($gets)
+    {
+        $data          = array();
+
+        $coverage      = explode(',', $this->coverage);
+        $area_kerja    = $gets['area_kerja'];
+        $tgl_awal      = tgl_sql($gets['tgl_awal']);
+        $tgl_akhir     = tgl_sql($gets['tgl_akhir']);
+
+        if (!empty($area_kerja)) {
+            $this->db->where_in('kk.id_area_kerja', $area_kerja);
+        } else {
+            $this->db->where_in('kk.id_area_kerja', $coverage);
+        }
+
+        $query = $this->db
+            ->select('kk.*, k.nama_karyawan')
+            ->from('kinerja_karyawan kk')
+            ->join('karyawan k', 'k.kode_karyawan = kk.kode_karyawan')
+            ->where('kk.tanggal >=', $tgl_awal)
+            ->where('kk.tanggal <=', $tgl_akhir)
+            ->order_by('kk.tanggal asc, k.nama_karyawan asc')
+            ->get();
+        $no = 1;
+
+        foreach ($query->result() as $kinerja) {
+            $data[] = [
+                'no'                => $no++,
+                'tanggal'           => tgl_str($kinerja->tanggal),
+                'nama'              => $kinerja->nama_karyawan,
+                'ranah_kerja'       => $kinerja->ranah_kerja,
+                'uraian_pekerjaan'  => $kinerja->uraian,
+                'kendala'           => $kinerja->kendala,
+                'absensi'           => $kinerja->absensi,
+            ];
+        }
+
+        return $data;
+    }
+
+    public function select2_area_kerja()
+    {
+        $data       = [];
+        $coverage   = explode(',', $this->coverage);
+        $query      = $this->db
+            ->select('id_area_kerja, nama_area_kerja')
+            ->from('area_kerja')
+            ->where_in('id_area_kerja', $coverage)
+            ->get();
+
+        if (isset($query)) {
+            foreach ($query->result() as $area_kerja) {
+                $data[] = array(
+                    'id'        => $area_kerja->id_area_kerja,
+                    'text'      => $area_kerja->nama_area_kerja
+                );
+            }
+        }
+
+        return $data;
+    }
 }

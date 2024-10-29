@@ -12,3 +12,9 @@ $route['karyawan_daftar_kinerja/update']                = 'karyawan/karyawan_daf
 $route['karyawan_daftar_kinerja/hapus']                 = 'karyawan/karyawan_daftar_kinerja/hapus';
 $route['karyawan_daftar_kinerja/get_KodeKaryawan']      = 'karyawan/karyawan_daftar_kinerja/get_KodeKaryawan';
 $route['karyawan_daftar_kinerja/get_NamaKaryawan']      = 'karyawan/karyawan_daftar_kinerja/get_NamaKaryawan';
+
+/* Laporan Kinerja */
+$route['karyawan_laporan_kinerja']                      = 'karyawan/karyawan_laporan_kinerja';
+$route['karyawan_laporan_kinerja/get']                  = 'karyawan/karyawan_laporan_kinerja/get';
+$route['karyawan_laporan_kinerja/export']               = 'karyawan/karyawan_laporan_kinerja/export';
+$route['karyawan_laporan_kinerja/select2_area_kerja']   = 'karyawan/karyawan_laporan_kinerja/select2_area_kerja';
