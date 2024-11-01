@@ -111,7 +111,7 @@ class Adm_user_global extends CI_Controller
 		responseJson($data);
 	}
 
-	//!ambil data role menu untuk kebutuhan select2
+	//ambil data role menu untuk kebutuhan select2
 	public function select2_group_menu()
 	{
 		$data 	= array();

@@ -53,13 +53,13 @@ $route['adm_user_global/select2_role']              = "administrator/adm_user_gl
 $route['adm_user_global/get_coverage']              = "administrator/adm_user_global/get_coverage";
 $route['adm_user_global/get_data_asn']              = "administrator/adm_user_global/get_data_asn";
 $route['adm_user_global/get_data_karyawan']         = "administrator/adm_user_global/get_data_karyawan";
+$route['adm_user_global/select2_group_menu']        = "administrator/adm_user_global/select2_group_menu";
 
 // $route['adm_user_global/select2_url']         = "administrator/adm_user_global/select2_url";
 // $route['adm_user_global/select2_level']       = "administrator/adm_user_global/select2_level";
 // $route['adm_user_global/select2_cabang']      = "administrator/adm_user_global/select2_cabang";
 // $route['adm_user_global/select2_jabatan']     = "administrator/adm_user_global/select2_jabatan";
 // $route['adm_user_global/get_data_pegawai']    = "administrator/adm_user_global/get_data_pegawai";
-// $route['adm_user_global/select2_group_menu']  = "administrator/adm_user_global/select2_group_menu";
 
 /* Menu */
 $route['adm_menu']                       = "administrator/adm_menu";
