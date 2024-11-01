@@ -9,9 +9,8 @@ class Auth extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('model_auth');
-		$this->load->model('wuling_admin/model_adm_setting');
+		$this->load->model('administrator/model_adm_setting');
 	}
-
 
 	public function index()
 	{
@@ -22,8 +21,8 @@ class Auth extends CI_Controller
 			redirect('home', 'refresh');
 		}
 
-		$row = $this->db_wuling->get('system_setting')->row();
-		if(empty($row->background_login)){
+		$row = $this->db->get('system_setting')->row();
+		if (empty($row->background_login)) {
 			$background = $row->background_login_default;
 		} else {
 			$background = $row->background_login;
@@ -46,22 +45,22 @@ class Auth extends CI_Controller
 	{
 		$status = false;
 		$pesan = 'Gagal mengganti password';
-		
+
 		if (empty($this->session->userdata('logged_in'))) {
 			redirect('auth', 'refresh');
 		}
-		
+
 		$username = $this->session->userdata('username');
 		$password = $this->input->post('password');
 		$confirm_password = $this->input->post('confirm-password');
-		
+
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 		$this->form_validation->set_rules('confirm-password', 'Confirm-Password', 'trim|required');
 		if ($this->form_validation->run() == true) {
 			$status = $this->model_auth->change_password($username, $password);
 			$pesan  = 'Berhasil mengganti password';
-		} 
-		$result = ['status'=>$status, 'pesan'=>$pesan];
+		}
+		$result = ['status' => $status, 'pesan' => $pesan];
 		responseJson($result);
 	}
 
@@ -72,11 +71,11 @@ class Auth extends CI_Controller
 		$id 		= $this->session->userdata('id_login');
 		$fp 		= $this->session->userdata('fp');
 		$time_logout = date('Y-m-d H:i:s');
-		$this->db_wuling->query("UPDATE history_login SET time_logout='$time_logout',status='0' WHERE id='$id'");
-		$this->db_wuling->query("UPDATE users SET fp='0', status_login='off' WHERE username='$username'");
-		//$this->db_wuling->query("UPDATE users SET fp='0' WHERE username='$username'");
+		$this->db->query("UPDATE history_login SET time_logout='$time_logout',status='0' WHERE id='$id'");
+		$this->db->query("UPDATE users SET fp='0', status_login='off' WHERE username='$username'");
+		//$this->db->query("UPDATE users SET fp='0' WHERE username='$username'");
 		$this->session->sess_destroy();
-		redirect(base_url(),'refresh');
+		redirect(base_url(), 'refresh');
 	}
 
 	public function blocked()
@@ -93,7 +92,6 @@ class Auth extends CI_Controller
 	{
 		$this->load->view('_auth/500');
 	}
-
 }
 
 /* End of file Auth.php */
