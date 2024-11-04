@@ -12,7 +12,7 @@ class Model_auth extends CI_Model
 	 */
 	public function verify_login($username, $password)
 	{
-		$query  = $this->db_wuling->get_where('users', ['username' => $username]);
+		$query  = $this->db->get_where('users', ['username' => $username]);
 		$pesan 	= 'Unknown Error';
 		$status = false;
 		$url 	= 'auth';
@@ -21,9 +21,9 @@ class Model_auth extends CI_Model
 			$user 	= $query->row();
 			if ($user->status_aktif == 'on') { //user aktif
 				if (password_verify($password, $user->password_hash) || md5($password) == $user->password) {
-					$url = $this->set_login($user);
-					$status = true;
-					$pesan = 'Login berhasil';
+					$url       = $this->set_login($user);
+					$status    = true;
+					$pesan     = 'Login berhasil';
 				} else {
 					$pesan = 'Username/Password yang anda masukkan salah, silahkan hubungi Administrator!';
 				}
@@ -33,29 +33,15 @@ class Model_auth extends CI_Model
 		} else {
 			//user not found
 			//coba cek di sales
-			$query_sales = $this->db_wuling->get_where('adm_sales', ['username' => $username]);
-			if ($query_sales->num_rows() > 0) { //sales found
-				$sales 	= $query_sales->row();
-				if ($sales->status_aktif == 'A') { //user aktif
-					if (password_verify($password, $sales->password_hash) || md5($password) == $sales->password) {
-						$url = $this->set_login_sales($sales);
-						$status = true;
-						$pesan = 'Login berhasil';
-					} else {
-						$pesan = 'Username/Password yang anda masukkan salah, silahkan hubungi AdminSales!';
-					}
-				} else {
-					$pesan = 'Maaf, Akun anda tidak aktif!';
-				}
-			} else {
-				$pesan = 'User tidak ditemukan!';
-			}
+			$pesan = 'User tidak ditemukan!';
 		}
+
 		$result = [
 			'status' => $status,
 			'pesan' => $pesan,
 			'url' => $url
 		];
+
 		return $result;
 	}
 
@@ -83,7 +69,7 @@ class Model_auth extends CI_Model
 			responseJson($result);
 			die();
 		} else {
-			$cek_role_id = $this->db_wuling->get_where('menu_role', ['id' => $user->id_role]);
+			$cek_role_id = $this->db->get_where('menu_role', ['id' => $user->id_role]);
 			if ($cek_role_id->num_rows() == 0) {
 				$result = [
 					'status' => FALSE,
@@ -95,120 +81,37 @@ class Model_auth extends CI_Model
 			}
 		}
 
-		$role_name 			= $this->db_wuling->select('role_name')->from('menu_role')->where('id', $user->id_role)->get()->row()->role_name;
-		$nama_cabang 		= 'WULING ' . id_perusahaan_to_lokasi($user->id_perusahaan);
-		$karyawan 			= $this->db->select("*")->from('karyawan')->where('nik', $user->nik)->get()->row();
+		$role_name 			= $this->db->select('role_name')->from('menu_role')->where('id', $user->id_role)->get()->row()->role_name;
+		// cek asn
+		$pegawai 			= $this->db->select("*")->from('pegawai')->where('nip', $user->nip)->get()->row();
+		if (empty($pegawai)) {
+			// cek karyawan
+			$pegawai = $this->db->select("*")->from('karyawan')->where('kode_karyawan', $user->kode_karyawan)->get()->row();
+		}
 
 		$sessions = array(
-			'logged_in' 	=> 'getLoginKMG_operasional',
-			'nik' 			=> $user->nik,
+			'logged_in' 	=> 'getLoginASHAMA_operasional',
+			'nip' 			=> $user->nip ?? null,
+			'kode_karyawan' => $user->kode_karyawan ?? null,
 			'username' 		=> $user->username,
-			'id_perusahaan' => $user->id_perusahaan,
 			'coverage' 		=> $user->coverage,
 			'id_jabatan' 	=> $user->id_jabatan,
 			'id_user' 		=> $user->id_user,
-			'nama_lengkap' 	=> $karyawan->nama_karyawan,
-			'email' 		=> $karyawan->email,
-			'foto' 			=> $karyawan->file_foto,
+			'nama_lengkap' 	=> $user->nama_lengkap,
+			'email' 		=> $pegawai->email,
+			'foto' 			=> $pegawai->file_foto,
 			'level' 		=> null, //$level,
 			'url' 			=> null, //$url,
 			'role_id'		=> $user->id_role,
 			'role_name' 	=> $role_name,
-			'nama_cabang' 	=> $nama_cabang,
 			'divisi' 		=> 'operasional',
 		);
-		$this->db_wuling->query("INSERT INTO history_login (id, username, time_login, status) VALUES ('$token','$user->username','$time_login','1')");
-		$this->db_wuling->query("UPDATE users SET status_login='on' WHERE username='$user->username'");
+		$this->db->query("INSERT INTO history_login (id, username, time_login, status) VALUES ('$token','$user->username','$time_login','1')");
+		$this->db->query("UPDATE users SET status_login='on' WHERE username='$user->username'");
 
 		$this->session->set_userdata($sessions);
 		setcookie("sidebar_minimize_state", "on", time() + (86400 * 30 * 7), "/"); // = 1 pekan
 
-		return $url;
-	}
-
-	/**
-	 * Fungsi untuk mengeset user sales yang telah sukses login
-	 * terkait data sessionnya
-	 * @param object  	$sales   	object sales
-	 * @return string
-	 */
-	private function set_login_sales($sales)
-	{
-		date_default_timezone_set('Asia/Makassar');
-		$time_login 		= date('Y-m-d H:i:s');
-		$url 				= 'home';
-		$token 				= uniqid(rand(), true);
-
-		$role_id 			= $this->_jabatan_to_role($sales->id_jabatan);
-		$role_name			= $this->db_wuling->select('role_name')->from('menu_role')->where('id', $role_id)->get()->row()->role_name;
-		$nama_cabang 		= 'WULING ' . id_perusahaan_to_lokasi($sales->id_perusahaan);
-		$karyawan 			= $this->db->select("*")->from('karyawan')->where('id_karyawan', $sales->id_sales)->get()->row();
-
-		//team sales
-		$id_team_supervisor = null;
-		$kode_spv_sgmw 		= null;
-		$team_supervisor 	= $this->db_wuling->get_where('adm_team_supervisor', ['id_supervisor' => $sales->id_sales])->row();
-		if (isset($team_supervisor)) {
-			$id_team_supervisor = $team_supervisor->id_team_supervisor;
-			$kode_spv_sgmw = $team_supervisor->kode_spv_sgmw;
-		}
-
-		$id_team_sm 		= null;
-		$team_sm  			= $this->db_wuling->select('id_team_sm,coverage')->get_where('adm_team_sm', ['id_sm' => $sales->id_sales])->row();
-		if (isset($team_sm)) {
-			$id_team_sm = $team_supervisor->id_team_sm;
-		}
-
-		$id_team_asm 		= null;
-		$team_asm 			= $this->db_wuling->select('id_team_asm')->get_where('adm_team_asm', ['id_asm' => $sales->id_sales])->row();
-		if (isset($team_asm)) {
-			$id_team_asm = $team_asm->id_team_asm;
-		}
-
-		$id_team_sales_by_spv = null;
-		$id_team_sales_by_sm = null;
-		$team_sales_by_sm = $this->db_wuling->select('ats.id_team_supervisor, atm.id_team_sm')
-			->from('adm_sales ads')
-			->join('adm_team_supervisor ats', 'ats.id_team_supervisor = ads.id_leader')
-			->join('adm_team_sm atm', 'atm.id_team_sm = ats.id_team_sm')
-			->where('ads.id_sales', $sales->id_sales)
-			->get()->row();
-		if (isset($team_sales_by_sm)) {
-			$id_team_sales_by_spv = $team_sales_by_sm->id_team_supervisor;
-			$id_team_sales_by_sm = $team_sales_by_sm->id_team_sm;
-		}
-
-		$sessions = array(
-			'logged_in' 			=> 'getLoginKMG_sales',
-			'username' 				=> $sales->username,
-			'id_perusahaan' 		=> $sales->id_perusahaan,
-			'coverage' 				=> $sales->coverage,
-			'id_jabatan' 			=> $sales->id_jabatan,
-			'id_sales' 				=> $sales->id_sales,
-			'id_leader' 			=> $sales->id_leader,
-			'id_team_supervisor' 	=> $id_team_supervisor,
-			'id_team_sm' 			=> $id_team_sm,
-			'id_team_asm' 			=> $id_team_asm,
-			'kode_sales_sgmw' 		=> $sales->kode_sales_sgmw,
-			'kode_spv_sgmw' 		=> $kode_spv_sgmw,
-			'nik' 					=> $karyawan->nik,
-			'nama_lengkap' 			=> $karyawan->nama_karyawan,
-			'email' 				=> $karyawan->email,
-			'foto' 					=> $karyawan->file_foto,
-			'level' 				=> null, //$level,
-			'url' 					=> null, //$url,
-			'role_id'				=> $role_id,
-			'role_name' 			=> $role_name,
-			'nama_cabang' 			=> $nama_cabang,
-			'divisi' 				=> 'sales',
-			'id_team_sales_by_spv'  => $id_team_sales_by_spv,
-			'id_team_sales_by_sm'   => $id_team_sales_by_sm,
-		);
-
-		$this->db_wuling->query("INSERT INTO history_login_sales (id_sales, time_login, asal) VALUES ('$sales->id_sales','$time_login','w')");
-
-		$this->session->set_userdata($sessions);
-		setcookie("sidebar_minimize_state", "on", time() + (86400 * 30 * 7), "/"); // = 1 pekan
 		return $url;
 	}
 
@@ -225,21 +128,21 @@ class Model_auth extends CI_Model
 		$md5_password 	= md5($password);
 		$divisi = $this->session->userdata('divisi');
 
-		$this->db_wuling->trans_start();
+		$this->db->trans_start();
 
 		switch ($divisi) {
 			case 'sales':
 				//untuk user divisi sales  
-				$query_cek_sales = $this->db_wuling->select('username')->from('adm_sales')->where('username', $username)->get();
+				$query_cek_sales = $this->db->select('username')->from('adm_sales')->where('username', $username)->get();
 				if ($query_cek_sales->num_rows() > 0) { //sales
-					$this->db_wuling->update("adm_sales", ['password' => $md5_password, 'password_hash' => $hash_password], ['username' => $username]);
+					$this->db->update("adm_sales", ['password' => $md5_password, 'password_hash' => $hash_password], ['username' => $username]);
 				}
 				break;
 			case 'operasional':
 				//untuk user operasional
-				$query_cek_user = $this->db_wuling->select('username')->from('users')->where('username', $username)->get();
+				$query_cek_user = $this->db->select('username')->from('users')->where('username', $username)->get();
 				if ($query_cek_user->num_rows() > 0) { //user
-					$this->db_wuling->update("users", ['password' => $md5_password, 'password_hash' => $hash_password], ['username' => $username]);
+					$this->db->update("users", ['password' => $md5_password, 'password_hash' => $hash_password], ['username' => $username]);
 				}
 				break;
 			default:
@@ -247,8 +150,8 @@ class Model_auth extends CI_Model
 				break;
 		}
 
-		$this->db_wuling->trans_complete();
-		$hasil = $this->db_wuling->trans_status();
+		$this->db->trans_complete();
+		$hasil = $this->db->trans_status();
 
 		return $hasil;
 	}
