@@ -29,32 +29,6 @@ abstract class MY_Controller extends CI_Controller
         $this->role_name     = $this->session->userdata('role_name');
         $this->id_jabatan    = $this->session->userdata('id_jabatan');
 
-        // $this->id_sales             = null;
-        // $this->id_jabatan           = null;
-        // $this->id_sales             = null;
-        // $this->id_leader            = null;
-        // $this->id_team_supervisor   = null;
-        // $this->id_team_sm           = null;
-        // $this->id_team_asm          = null;
-        // $this->kode_sales_sgmw      = null;
-        // $this->id_leader            = null;
-        // $this->id_team_sales_by_spv = null;
-        // $this->id_team_sales_by_sm  = null;
-
-        // if (!empty($this->session->userdata('id_sales'))) {
-        //     $this->id_sales             = $this->session->userdata('id_sales');
-        //     $this->id_jabatan           = $this->session->userdata('id_jabatan');
-        //     $this->id_sales             = $this->session->userdata('id_sales');
-        //     $this->id_leader            = $this->session->userdata('id_leader');
-        //     $this->id_team_supervisor   = $this->session->userdata('id_team_supervisor');
-        //     $this->id_team_sm           = $this->session->userdata('id_team_sm');
-        //     $this->id_team_asm          = $this->session->userdata('id_team_asm');
-        //     $this->kode_sales_sgmw      = $this->session->userdata('kode_sales_sgmw');
-        //     $this->id_leader            = $this->session->userdata('id_leader');
-        //     $this->id_team_sales_by_spv = $this->session->userdata('id_team_sales_by_spv');
-        //     $this->id_team_sales_by_sm  = $this->session->userdata('id_team_sales_by_sm');
-        // }
-
         $this->brand             = explode('_', $this->session->userdata('level'))[0];
     }
 }
