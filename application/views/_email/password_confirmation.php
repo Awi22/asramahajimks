@@ -7,13 +7,13 @@
 						<div style="text-align:center; margin:0 60px 34px 60px">
 							<div style="margin-bottom: 30px">
 								<a href="https://kumalagroup.id" rel="noopener" target="_blank">
-									<img alt="Logo" src="<?= base_url('public/assets/media/logos/wuling-logo2.png') ?>" style="height: 35px" />
+									<img alt="Logo" src="<?= base_url('public/assets/media/logos/upt-logo-horizontal-black.png') ?>" style="height: 35px" />
 								</a>
 							</div>
 
 							<div style="font-size: 14px; font-weight: 500; margin-bottom: 27px; font-family:Arial,Helvetica,sans-serif;">
 								<p style="margin-bottom:30px; color:#181C32; font-size: 22px; font-weight:700">Informasi Login</p>
-								<p style="margin-bottom:2px; color:#7E8299">Hai <b><?= $nama_lengkap?></b>, gunakan informasi berikut untuk login ke DMS Wuling Kumala</p>
+								<p style="margin-bottom:2px; color:#7E8299">Hai <b><?= $nama_lengkap ?></b>, gunakan informasi berikut untuk login ke Portal UPT Asrama Haji Makassar</p>
 							</div>
 						</div>
 					</td>
@@ -34,7 +34,7 @@
 				</tr>
 				<tr style="display: flex;justify-content: start;margin: 0 30px 15px 30px;">
 					<td align="start" valign="start" style="padding-bottom: 10px; width:100% !important">
-						<div style="">
+						<div>
 							<div style="display:flex; justify-content: center">
 								<a href="<?= base_url('auth/logout') ?>" target="_blank" style="background-color:#50cd89; border-radius:6px;display:inline-block; padding:11px 19px; color: #FFFFFF; font-size: 14px; font-weight:500; font-family:Arial,Helvetica,sans-serif;">Sign In</a>
 							</div>
@@ -44,8 +44,8 @@
 
 				<tr>
 					<td align="center" valign="center" style="font-size: 13px; padding:0 15px; text-align:center; font-weight: 500; color: #A1A5B7;font-family:Arial,Helvetica,sans-serif">
-						<p>&copy; KumalaGroup.
-							<a href="https://kumalagroup.id" rel="noopener" target="_blank" style="font-weight: 600;font-family:Arial,Helvetica,sans-serif"></a>
+						<p>&copy; UPT Asrama Haji Makassar.
+							<a href="http://asramahajimks.infinityfreeapp.com/?i=1" rel="noopener" target="_blank" style="font-weight: 600;font-family:Arial,Helvetica,sans-serif"></a>
 						</p>
 					</td>
 				</tr>
