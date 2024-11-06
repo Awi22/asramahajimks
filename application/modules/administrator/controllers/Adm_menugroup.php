@@ -20,8 +20,8 @@ class Adm_menugroup extends CI_Controller
     public function add()
     {
         if (isset($_POST['title'])) {
-            $data['title'] = $this->input->post('title');
-            $data['created_by'] = $this->username;
+            $data['title']        = $this->input->post('title');
+            $data['created_by']   = $this->username;
             if (!empty($data['title'])) {
                 if ($this->db->insert('menu_group', $data)) {
                     $response['status']   = 1;

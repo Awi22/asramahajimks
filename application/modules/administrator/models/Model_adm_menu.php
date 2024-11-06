@@ -21,7 +21,6 @@ class Model_adm_menu extends CI_Model
         foreach ($res as $parent) {
             $parents[] = $parent->parent_id;
         }
-        // debug($parents);
 
         if ($res) {
             foreach ($res as $r) {
