@@ -97,7 +97,7 @@ jQuery(function ($) {
 	  ------------------------------------------------------------------------- */
 	function site_url(url) {
 		// return _BASE_URL + "index.php?act=" + url;
-		return _BASE_URL  + url;
+		return _BASE_URL + url;
 	}
 
 	/* nested sortables
@@ -142,8 +142,8 @@ jQuery(function ($) {
 	// 		$("#btn-save-menu").attr("disabled", false);
 	// 	},
 	// });
-	$('.disclose').attr('title','Click to show/hide children');
-	$('.disclose').on('click', function() {
+	$('.disclose').attr('title', 'Click to show/hide children');
+	$('.disclose').on('click', function () {
 		$(this).closest('li').toggleClass('mjs-nestedSortable-collapsed').toggleClass('mjs-nestedSortable-expanded');
 		$(this).toggleClass('fas fa-angle-down').toggleClass('fas fa-angle-up');
 	});
@@ -153,11 +153,11 @@ jQuery(function ($) {
 	$("body").on("click", ".edit-menu", function () {
 		var menu_id = $(this).next().next().val();
 		var menu_div = $(this).parent().parent();
-		console.log(_BASE_URL + "wuling_adm_menu/edit/" + menu_id);
+		console.log(_BASE_URL + "adm_menu/edit/" + menu_id);
 		var li = $(this).closest("li");
 		gbox.show({
 			type: "ajax",
-			url: _BASE_URL + "wuling_adm_menu/edit/" + menu_id,
+			url: _BASE_URL + "adm_menu/edit/" + menu_id,
 			buttons: {
 				// Batal: gbox.hide,
 				Simpan: function () {
@@ -198,14 +198,14 @@ jQuery(function ($) {
 		var param = { id: $(this).next().val() };
 		var menu_title = $(this).parent().parent().children(".ns-title").text();
 		konfirmasi("Yakin ingin menghapus menu? Semua sub menu akan ikut terhapus")
-			.then(function(e){
+			.then(function (e) {
 				if (e.value) {
-					$.post(_BASE_URL + "wuling_adm_menu/delete", param, function (data) {
+					$.post(_BASE_URL + "adm_menu/delete", param, function (data) {
 						if (data.success) {
-							peringatan("Sukses","Berhasil menghapus menu","success",1500)
+							peringatan("Sukses", "Berhasil menghapus menu", "success", 1500)
 							li.remove();
 						} else {
-							peringatan("Error","Gagal menghapus menu (masih digunakan)","error",1500)
+							peringatan("Error", "Gagal menghapus menu (masih digunakan)", "error", 1500)
 						}
 					});
 				}
@@ -275,7 +275,7 @@ jQuery(function ($) {
 						//$('#gbox_ok').attr('disabled', true);
 						$.ajax({
 							type: "POST",
-							url: _BASE_URL + "wuling_adm_menugroup/add",
+							url: _BASE_URL + "adm_menugroup/add",
 							data: "title=" + group_title,
 							error: function () {
 								//$('#gbox_ok').attr('disabled', false);
@@ -287,7 +287,7 @@ jQuery(function ($) {
 										gbox.hide();
 										$("#menu-group").append(
 											'<li class="nav-item"><a href="' +
-											site_url("wuling_adm_menu/menu/" + data.id) +
+											site_url("adm_menu/menu/" + data.id) +
 											'" class="nav-link btn btn-active-light btn-color-gray-600 btn-active-color-primary rounded-bottom-0">' +
 											group_title +
 											"</a></li>"
@@ -326,10 +326,10 @@ jQuery(function ($) {
 			data: menu_serialized,
 			error: function () {
 				$("#btn-save-menu").attr("disabled", false);
-				peringatan("Error","Gagal menyimpan menu","error");
+				peringatan("Error", "Gagal menyimpan menu", "error");
 			},
 			success: function () {
-				peringatan("Sukses","Berhasil menyimpan menu","success",1500)
+				peringatan("Sukses", "Berhasil menyimpan menu", "success", 1500)
 			},
 		});
 		return false;
@@ -344,7 +344,7 @@ jQuery(function ($) {
 			'<input class="form-control form-control-sm w-100" value="' +
 			group_title +
 			'">'
-			+ 
+			+
 			`<p class="text-muted" style="font-size:12px">Tekan ENTER untuk menyimpan, ESC untuk batal</p>`
 		);
 		var inputgroup = sgroup.find("input");
@@ -362,7 +362,7 @@ jQuery(function ($) {
 					}
 					$.ajax({
 						type: "POST",
-						url: _BASE_URL + "wuling_adm_menugroup/edit",
+						url: _BASE_URL + "adm_menugroup/edit",
 						data: "id=" + current_group_id + "&title=" + title,
 						success: function (data) {
 							if (data.success) {
@@ -385,11 +385,11 @@ jQuery(function ($) {
 		var group_title = $("#menu-group li.current a").text();
 		var param = { id: current_group_id };
 		konfirmasi("Yakin ingin menghapus menu group? Semua menu akan ikut terhapus")
-			.then(function(e){
+			.then(function (e) {
 				if (e.value) {
-					$.post(_BASE_URL + "wuling_adm_menugroup/delete", param, function (data) {
+					$.post(_BASE_URL + "adm_menugroup/delete", param, function (data) {
 						if (data.success) {
-							window.location = site_url("wuling_adm_menu");
+							window.location = site_url("adm_menu");
 						} else {
 						}
 					});
@@ -418,5 +418,5 @@ jQuery(function ($) {
 		return false;
 	});
 
-	
+
 });
