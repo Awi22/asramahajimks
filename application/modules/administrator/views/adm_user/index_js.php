@@ -554,7 +554,7 @@
 			status = $(this).is(':checked') === true ? 'on' : 'off';
 		$.ajax({
 			type: "POST",
-			url: "<?= base_url('wuling_adm_user/set_status') ?>",
+			url: "<?= base_url('adm_user/set_status') ?>",
 			data: {
 				'id_user': id_user,
 				'status': status,
