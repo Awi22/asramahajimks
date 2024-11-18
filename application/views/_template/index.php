@@ -141,7 +141,7 @@
 									if (empty($this->session->userdata('foto'))) {
 										echo '<img alt="Logo" src="' . base_url() . 'public/assets/media/avatars/blank.png" class="rounded-3" alt="user"/>';
 									} else {
-										echo '<img alt="Logo" src="https://portal.kumalagroup.co.id/kmg/assets/upload_file_hrd/karyawan/' . $this->session->userdata('foto') . '" class="rounded-3" alt="user"/>';
+										echo '<img alt="Logo" src="' . base_url() . 'public/upload/images/foto_profil/' . $this->session->userdata('foto') . '" class="rounded-3" alt="user"/>';
 									}
 									?>
 								</div>
@@ -157,7 +157,7 @@
 												if (empty($this->session->userdata('foto'))) {
 													echo '<img alt="Logo" src="' . base_url() . 'public/assets/media/avatars/blank.png" />';
 												} else {
-													echo '<img alt="Logo" src="https://portal.kumalagroup.co.id/kmg/assets/upload_file_hrd/karyawan/' . $this->session->userdata('foto') . '" />';
+													echo '<img alt="Logo" src="' . base_url() . 'public/upload/images/foto_profil/' . $this->session->userdata('foto') . '" />';
 												}
 												?>
 											</div>
