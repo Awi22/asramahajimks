@@ -214,7 +214,7 @@ class Model_user extends CI_Model
                     'password'      => $password
                 ];
                 if (!empty($email)) {
-                    $sukses_kirim_email = $this->send_email->send('password_confirmation', 'DMS Asrama Haji Makassar', $email, 'Informasi Login DMS Asrama Haji Makassar', $data);
+                    $sukses_kirim_email = $this->send_email->send('password_confirmation', 'Portal Asrama Haji Makassar', $email, 'Informasi Login Portal Asrama Haji Makassar', $data);
                     if ($sukses_kirim_email) {
                         $pesan = "Berhasil membuat user dan mengirim ke email";
                     }

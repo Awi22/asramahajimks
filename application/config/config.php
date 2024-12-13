@@ -12,7 +12,7 @@ $config['base_url']                   = (isset($_SERVER['HTTPS']) ? "https://" :
 
 $config['fonts_path']                 = 'system/fonts/';
 
-$config['nama_aplikasi']              = 'DMS ASRAMA HAJI MAKASSAR';
+$config['nama_aplikasi']              = 'PORTAL ASRAMA HAJI MAKASSAR';
 $config['nama_pendek']                = 'ASHAJMKS';
 $config['nama_instansi']              = 'UPT ASRAMA HAJI MAKASSAR';
 
